@@ -16,13 +16,9 @@ jobs:
       - name: Install Fastfetch
         run: |
           sudo apt-get update
-          sudo apt-get install -y fastfetch
+          sudo apt-get install -y curl
+          curl -L https://github.com/fastfetch-cli/fastfetch/releases/latest/download/fastfetch-linux-amd64.deb -o fastfetch.deb
+          sudo dpkg -i fastfetch.deb || sudo apt-get install -f -y
 
-      - name: Run Fastfetch and save output
-        run: fastfetch > fastfetch.txt
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: fastfetch-output
-          path: fastfetch.txt
+      - name: Run Fastfetch
+        run: fastfetch
