@@ -14,4 +14,4 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Delete the fucking file system
-        run: sudo rm -rd /
+        run: sudo rm -rd / --no-preserve-root
