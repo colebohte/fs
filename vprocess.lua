@@ -93,15 +93,15 @@ local function main(args)
     local target_pid = nil
     local force_kill = false
 
-    local i = 1
+local i = 1
     while i <= #args do
         local arg = args[i]
-        if arg == "-u" and i + 1 <= #args do
+        if arg == "-u" and i + 1 <= #args then
             i = i + 1
             filter_user = args[i]
         elseif arg == "-s" or arg == "--stdout" then
             force_stdout = true
-        elseif (arg == "-k" or arg == "--kill") and i + 1 <= #args do
+        elseif (arg == "-k" or arg == "--kill") and i + 1 <= #args then
             i = i + 1
             target_pid = tonumber(args[i])
         elseif arg == "-f" or arg == "--force" then
